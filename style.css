@@ -1,0 +1,190 @@
+/* RESET*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+:root{
+
+  /* cores */
+  --background-color: hsla(240, 5%, 7%, 1);
+  --title-color:hsla(0, 0%, 100%, 1);
+  --text-color: hsla(240, 5%, 65%, 1);
+  --card-color: hsla(257, 16%, 18%, 1);
+  --gradient: linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+
+  /* tamanho da fonte */
+  --title-font-size: 1.5rem;
+  --text-font-size: 1rem;
+
+  /* Tipo de fonte */
+  --font-family: 'Inter', sans-serif;
+}
+
+/* Layout */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+body{
+  background-color: var(--background-color);
+  background-image: url(./files/bg.jpg);
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.title{
+  font: 900 var(--title-font-size) var(--font-family) ;
+  color: var(--title-color);
+  line-height: 160%;
+  letter-spacing: -0.47px;
+}
+
+.subtitle{
+  font: 400 var(--text-font-size) var(--font-family) ;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  line-height: 160%;
+  letter-spacing: -0.18px;
+}
+
+/* Avatar - header*/
+
+header {
+  height: calc(120px +32px);
+}
+.avatar{
+  position: relative;
+  width: 120px;
+  height: 120px;
+  background: var(--gradient);
+  object-fit: cover;
+  clip-path: circle();
+  margin-bottom: 2rem;
+  transition: transform .3s;
+}
+
+.avatar img{
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 112px;
+  height: 112px;
+  object-fit: cover;
+  clip-path: circle();
+  margin-bottom: 2rem;
+}
+
+.avatar:hover{
+  transform: scale(1.1);
+}
+
+/* Main*/
+ul{
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+ul li{
+transition: transform .3s;
+}
+
+ul li:hover{
+  transform: scale(1.1);
+}
+
+.img_game img{
+  width: 5.625rem;
+  border-radius: 0.5rem;
+}
+
+.img_chanel{
+  width: 70px;
+  object-fit: cover;
+  clip-path: circle();
+}
+
+.card{
+  background-color: var(--card-color);
+  width: 36.25rem;
+  padding: 2rem 1.5rem;
+  border-radius: 0.5rem;
+  position: relative;
+}
+
+.card::before{
+  content: '';
+  height: 100%;
+  width: 100%;
+  background: var(--gradient);
+  border-radius: 10px;
+  position: absolute;
+  top: -0.25rem;
+  left: 0%;
+  z-index: -1;
+}
+
+/*  animation */
+
+.avatar{
+  animation: fromTop .7s .2s backwards;
+}
+
+main .card{
+  animation: fromBottom .7s backwards;
+}
+
+main .card:nth-child(1){
+  animation-delay: 0;
+}
+
+main .card:nth-child(2){
+  animation-delay: .4s;
+}
+
+main .card:nth-child(3){
+  animation-delay: .8s;
+}
+
+@keyframes fromTop{
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fromBottom{
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
